@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REVORA - Everyday Tasks Made Simple</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
+header{background:#101c35;color:white;padding:20px}
+.logo{font-size:27px;font-weight:bold;color:#48e0ae}
+nav{display:flex;justify-content:space-between;align-items:center}
+.hero{text-align:center;padding:65px 20px;background:linear-gradient(135deg,#101c35,#174b68);color:white}
+.hero h1{font-size:38px;margin:0 0 15px}
+.hero p{font-size:17px;line-height:1.7}
+.btn{background:#35d6a1;color:#102b32;padding:14px 25px;border:0;border-radius:9px;font-weight:bold;font-size:16px;cursor:pointer}
+section{padding:35px 20px;max-width:950px;margin:auto}
+h2{text-align:center}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:white;padding:25px;border-radius:14px;box-shadow:0 3px 15px #0000000c}
+.card h3{color:#147b68}
+footer{text-align:center;padding:25px;background:#101c35;color:white}
+</style>
+</head>
+<body>
+<header>
+<nav>
+<div class="logo">REVORA</div>
+<div>Everyday Tasks. Made Simple.</div>
+</nav>
+</header>
+
+<div class="hero">
+<h1>Welcome to REVORA</h1>
+<p>সহজ কাজ শিখুন, দক্ষতা বাড়ান এবং নতুন সুযোগ তৈরি করুন।</p>
+<button class="btn" onclick="document.getElementById('tasks').scrollIntoView({behavior:'smooth'})">Explore Tasks</button>
+</div>
+
+<section id="tasks">
+<h2>Explore Opportunities</h2>
+<div class="cards">
+<div class="card">
+<h3>📚 Learn Skills</h3>
+<p>নতুন নতুন দক্ষতা শিখুন সহজভাবে।</p>
+</div>
+<div class="card">
+<h3>✅ Simple Tasks</h3>
+<p>সহজ ও প্রয়োজনীয় কাজ সম্পন্ন করুন।</p>
+</div>
+<div class="card">
+<h3>🌍 Opportunities</h3>
+<p>নিজের জন্য নতুন সুযোগ খুঁজে নিন।</p>
+</div>
+</div>
+</section>
+
+<footer>
+<h3>REVORA</h3>
+<p>Simple Tasks. Real Opportunities.</p>
+<p>© 2026 REVORA</p>
+</footer>
+</body>
+</html>
