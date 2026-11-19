@@ -4,61 +4,259 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>REVORA - Everyday Tasks Made Simple</title>
+<title>REVORA | Everyday Tasks. Made Simple.</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
-header{background:#101c35;color:white;padding:20px}
-.logo{font-size:27px;font-weight:bold;color:#48e0ae}
-nav{display:flex;justify-content:space-between;align-items:center}
-.hero{text-align:center;padding:65px 20px;background:linear-gradient(135deg,#101c35,#174b68);color:white}
-.hero h1{font-size:38px;margin:0 0 15px}
-.hero p{font-size:17px;line-height:1.7}
-.btn{background:#35d6a1;color:#102b32;padding:14px 25px;border:0;border-radius:9px;font-weight:bold;font-size:16px;cursor:pointer}
-section{padding:35px 20px;max-width:950px;margin:auto}
-h2{text-align:center}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{background:white;padding:25px;border-radius:14px;box-shadow:0 3px 15px #0000000c}
-.card h3{color:#147b68}
-footer{text-align:center;padding:25px;background:#101c35;color:white}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f8ff;color:#17243b;line-height:1.6}
+header{background:white;padding:15px 6%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 15px #0001;position:sticky;top:0;z-index:10}
+.logo{font-size:27px;font-weight:800;color:#1764d8}
+nav{display:flex;align-items:center;gap:17px}
+nav a{text-decoration:none;color:#34435a;font-size:14px;font-weight:bold}
+button{border:0;border-radius:9px;padding:11px 16px;cursor:pointer;font-weight:bold}
+.blue{background:#1764d8;color:white}
+.light{background:#eaf1ff;color:#1764d8}
+.hero{background:linear-gradient(135deg,#102b52,#1764d8);color:white;text-align:center;padding:75px 6%}
+.hero h1{font-size:clamp(32px,6vw,52px);line-height:1.2;margin:18px 0}
+.hero h1 span{color:#a9d7ff}
+.hero p{max-width:650px;margin:0 auto 25px;color:#e0ebff}
+.tag{background:#ffffff20;padding:7px 15px;border-radius:25px;font-size:12px}
+.search{display:flex;max-width:560px;margin:auto;background:white;padding:6px;border-radius:12px}
+.search input{flex:1;min-width:0;border:0;outline:0;padding:12px;font-size:15px}
+.stats{display:flex;justify-content:center;gap:55px;padding:28px;background:white;flex-wrap:wrap;text-align:center}
+.stats strong{display:block;font-size:22px;color:#1764d8}
+.stats small{color:#718096}
+section{padding:55px 6%}
+.heading{text-align:center;margin-bottom:30px}
+.heading h2{font-size:29px}
+.heading p{color:#718096}
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.category{background:white;padding:23px 10px;text-align:center;border:1px solid #e6edf7;border-radius:14px;cursor:pointer}
+.category:hover,.task:hover{box-shadow:0 8px 22px #0001;transform:translateY(-3px)}
+.emoji{font-size:30px}
+.category h3{font-size:15px;margin-top:8px}
+.category p{font-size:12px;color:#718096}
+.tasks{background:white}
+.task-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.task{border:1px solid #e6edf7;border-radius:14px;padding:22px;transition:.2s}
+.label{background:#eaf1ff;color:#1764d8;padding:5px 10px;border-radius:20px;font-size:12px}
+.task h3{font-size:18px;margin:15px 0 8px}
+.task p{font-size:14px;color:#718096;min-height:45px}
+.task-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
+.task-bottom strong{color:#1764d8}
+.task-bottom button{background:#1764d8;color:white;font-size:12px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step{background:white;padding:25px;border-radius:14px;text-align:center}
+.step span{font-size:32px}
+.step p{color:#718096;font-size:14px}
+.cta{background:#1764d8;color:white;text-align:center;padding:50px 20px}
+.cta h2{font-size:28px;margin-bottom:10px}
+.cta p{margin-bottom:20px}
+.cta button{background:white;color:#1764d8}
+footer{background:#101d32;color:#d4dfef;text-align:center;padding:35px 15px}
+footer h2{color:white}
+footer p{font-size:13px;margin-top:8px}
+.notice{text-align:center;color:#64748b;padding:12px;font-size:13px}
+@media(max-width:700px){
+header{padding:13px 4%;gap:8px}
+nav{gap:9px}
+nav a{font-size:12px}
+.categories{grid-template-columns:repeat(2,1fr)}
+.task-grid,.steps{grid-template-columns:1fr}
+.hero{padding:55px 5%}
+.stats{gap:22px}
+section{padding:40px 5%}
+}
 </style>
 </head>
 <body>
+
 <header>
+<div class="logo">REVORA.</div>
 <nav>
-<div class="logo">REVORA</div>
-<div>Everyday Tasks. Made Simple.</div>
+<a href="#home" id="navHome">হোম</a>
+<a href="#categories" id="navCat">বিভাগ</a>
+<a href="#tasks" id="navTask">কাজ</a>
+<button class="light" onclick="toggleLang()" id="langBtn">English</button>
 </nav>
 </header>
 
-<div class="hero">
-<h1>Welcome to REVORA</h1>
-<p>সহজ কাজ শিখুন, দক্ষতা বাড়ান এবং নতুন সুযোগ তৈরি করুন।</p>
-<button class="btn" onclick="document.getElementById('tasks').scrollIntoView({behavior:'smooth'})">Explore Tasks</button>
-</div>
-
-<section id="tasks">
-<h2>Explore Opportunities</h2>
-<div class="cards">
-<div class="card">
-<h3>📚 Learn Skills</h3>
-<p>নতুন নতুন দক্ষতা শিখুন সহজভাবে।</p>
-</div>
-<div class="card">
-<h3>✅ Simple Tasks</h3>
-<p>সহজ ও প্রয়োজনীয় কাজ সম্পন্ন করুন।</p>
-</div>
-<div class="card">
-<h3>🌍 Opportunities</h3>
-<p>নিজের জন্য নতুন সুযোগ খুঁজে নিন।</p>
-</div>
+<main>
+<section class="hero" id="home">
+<span class="tag">✦ EVERYDAY TASKS. MADE SIMPLE.</span>
+<h1 id="heroTitle">সহজ কাজ খুঁজুন,<br><span>নতুন সুযোগ তৈরি করুন</span></h1>
+<p id="heroText">REVORA একটি সহজ ডিজিটাল প্ল্যাটফর্ম। এখানে কাজ খুঁজুন, নতুন দক্ষতা শিখুন এবং নিজের সুযোগ তৈরি করুন।</p>
+<div class="search">
+<input id="searchInput" placeholder="কী ধরনের কাজ খুঁজছেন?">
+<button class="blue" onclick="searchTasks()" id="searchBtn">খুঁজুন</button>
 </div>
 </section>
 
+<div class="stats">
+<div><strong>Simple</strong><small>সহজ ব্যবহার</small></div>
+<div><strong>Anytime</strong><small>যেকোনো সময়</small></div>
+<div><strong>Everyone</strong><small>সবার জন্য</small></div>
+</div>
+
+<section id="categories">
+<div class="heading">
+<h2 id="catTitle">কাজের বিভাগ</h2>
+<p id="catDesc">আপনার পছন্দের বিভাগ থেকে শুরু করুন</p>
+</div>
+<div class="categories">
+<div class="category" onclick="filterTasks('Writing')"><div class="emoji">✍️</div><h3>লেখালেখি</h3><p>Writing</p></div>
+<div class="category" onclick="filterTasks('Design')"><div class="emoji">🎨</div><h3>ডিজাইন</h3><p>Design</p></div>
+<div class="category" onclick="filterTasks('Learning')"><div class="emoji">📚</div><h3>শেখা</h3><p>Learning</p></div>
+<div class="category" onclick="filterTasks('Digital')"><div class="emoji">💻</div><h3>ডিজিটাল কাজ</h3><p>Digital</p></div>
+</div>
+</section>
+
+<section class="tasks" id="tasks">
+<div class="heading">
+<h2 id="taskTitle">জনপ্রিয় কাজসমূহ</h2>
+<p id="taskDesc">আপনার পছন্দের কাজ খুঁজে নিন</p>
+</div>
+<div class="task-grid" id="taskGrid">
+
+<article class="task" data-category="Writing">
+<span class="label">Writing</span>
+<h3>বাংলা কনটেন্ট লেখা</h3>
+<p>ছোট ও আকর্ষণীয় বাংলা কনটেন্ট তৈরির অনুশীলন।</p>
+<div class="task-bottom"><strong>Beginner</strong><button onclick="taskInfo('বাংলা কনটেন্ট লেখা')">বিস্তারিত</button></div>
+</article>
+
+<article class="task" data-category="Design">
+<span class="label">Design</span>
+<h3>সোশ্যাল মিডিয়া ডিজাইন</h3>
+<p>সুন্দর পোস্ট ও ব্যানার ডিজাইনের অনুশীলন।</p>
+<div class="task-bottom"><strong>Creative</strong><button onclick="taskInfo('সোশ্যাল মিডিয়া ডিজাইন')">বিস্তারিত</button></div>
+</article>
+
+<article class="task" data-category="Learning">
+<span class="label">Learning</span>
+<h3>নতুন দক্ষতা শেখা</h3>
+<p>নতুন বিষয় শেখা ও নিজের দক্ষতা বাড়ানো।</p>
+<div class="task-bottom"><strong>Learning</strong><button onclick="taskInfo('নতুন দক্ষতা শেখা')">বিস্তারিত</button></div>
+</article>
+
+<article class="task" data-category="Digital">
+<span class="label">Digital</span>
+<h3>ডিজিটাল রিসার্চ</h3>
+<p>ইন্টারনেটে প্রয়োজনীয় তথ্য খোঁজা ও সাজানো।</p>
+<div class="task-bottom"><strong>Basic</strong><button onclick="taskInfo('ডিজিটাল রিসার্চ')">বিস্তারিত</button></div>
+</article>
+
+<article class="task" data-category="Writing">
+<span class="label">Writing</span>
+<h3>প্রোডাক্ট বর্ণনা</h3>
+<p>পণ্যের জন্য সুন্দর ও সহজ বর্ণনা লেখা।</p>
+<div class="task-bottom"><strong>Beginner</strong><button onclick="taskInfo('প্রোডাক্ট বর্ণনা')">বিস্তারিত</button></div>
+</article>
+
+<article class="task" data-category="Design">
+<span class="label">Design</span>
+<h3>লোগো আইডিয়া</h3>
+<p>নতুন ব্র্যান্ডের জন্য সৃজনশীল লোগো আইডিয়া।</p>
+<div class="task-bottom"><strong>Creative</strong><button onclick="taskInfo('লোগো আইডিয়া')">বিস্তারিত</button></div>
+</article>
+
+</div>
+<p class="notice" id="noResult" hidden>কোনো কাজ পাওয়া যায়নি। আবার চেষ্টা করুন।</p>
+</section>
+
+<section id="how">
+<div class="heading">
+<h2 id="howTitle">যেভাবে কাজ করবে</h2>
+<p id="howDesc">মাত্র তিনটি সহজ ধাপ</p>
+</div>
+<div class="steps">
+<div class="step"><span>🔍</span><h3 id="step1">১. কাজ খুঁজুন</h3><p id="stepText1">আপনার পছন্দের কাজ বেছে নিন।</p></div>
+<div class="step"><span>📝</span><h3 id="step2">২. শিখুন ও সম্পন্ন করুন</h3><p id="stepText2">নির্দেশনা অনুসরণ করে কাজ করুন।</p></div>
+<div class="step"><span>🌟</span><h3 id="step3">৩. সুযোগ তৈরি করুন</h3><p id="stepText3">নিজের দক্ষতা ও অভিজ্ঞতা বাড়ান।</p></div>
+</div>
+</section>
+
+<div class="cta">
+<h2 id="ctaTitle">আপনার যাত্রা শুরু হোক আজই!</h2>
+<p id="ctaText">REVORA-এর সঙ্গে সহজ কাজ ও নতুন সুযোগ আবিষ্কার করুন।</p>
+<button onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})" id="ctaBtn">কাজ দেখুন</button>
+</div>
+</main>
+
 <footer>
-<h3>REVORA</h3>
-<p>Simple Tasks. Real Opportunities.</p>
-<p>© 2026 REVORA</p>
+<h2>REVORA.</h2>
+<p>Everyday Tasks. Made Simple.</p>
+<p>© 2026 REVORA. All rights reserved.</p>
 </footer>
+
+<script>
+let english=false;
+
+function toggleLang(){
+english=!english;
+document.documentElement.lang=english?'en':'bn';
+const t={
+navHome:['হোম','Home'],
+navCat:['বিভাগ','Categories'],
+navTask:['কাজ','Tasks'],
+heroTitle:['সহজ কাজ খুঁজুন,<br><span>নতুন সুযোগ তৈরি করুন</span>','Find Simple Tasks,<br><span>Create New Opportunities</span>'],
+heroText:['REVORA একটি সহজ ডিজিটাল প্ল্যাটফর্ম। এখানে কাজ খুঁজুন, নতুন দক্ষতা শিখুন এবং নিজের সুযোগ তৈরি করুন।','REVORA is a simple digital platform to find tasks, learn skills and create opportunities.'],
+searchBtn:['খুঁজুন','Search'],
+catTitle:['কাজের বিভাগ','Task Categories'],
+catDesc:['আপনার পছন্দের বিভাগ থেকে শুরু করুন','Start with your favourite category'],
+taskTitle:['জনপ্রিয় কাজসমূহ','Featured Tasks'],
+taskDesc:['আপনার পছন্দের কাজ খুঁজে নিন','Explore tasks that interest you'],
+howTitle:['যেভাবে কাজ করবে','How It Works'],
+howDesc:['মাত্র তিনটি সহজ ধাপ','Just three simple steps'],
+step1:['১. কাজ খুঁজুন','1. Find Tasks'],
+stepText1:['আপনার পছন্দের কাজ বেছে নিন।','Choose a task you like.'],
+step2:['২. শিখুন ও সম্পন্ন করুন','2. Learn & Complete'],
+stepText2:['নির্দেশনা অনুসরণ করে কাজ করুন।','Follow the instructions and complete it.'],
+step3:['৩. সুযোগ তৈরি করুন','3. Create Opportunities'],
+stepText3:['নিজের দক্ষতা ও অভিজ্ঞতা বাড়ান।','Build your skills and experience.'],
+ctaTitle:['আপনার যাত্রা শুরু হোক আজই!','Start Your Journey Today!'],
+ctaText:['REVORA-এর সঙ্গে সহজ কাজ ও নতুন সুযোগ আবিষ্কার করুন।','Discover simple tasks and new opportunities with REVORA.'],
+ctaBtn:['কাজ দেখুন','Explore Tasks']
+};
+for(const id in t){
+document.getElementById(id).innerHTML=t[id][english?1:0];
+}
+document.getElementById('langBtn').textContent=english?'বাংলা':'English';
+document.getElementById('searchInput').placeholder=english?'What task are you looking for?':'কী ধরনের কাজ খুঁজছেন?';
+document.getElementById('searchInput').value='';
+document.querySelectorAll('.category h3').forEach((el,i)=>el.textContent=english?['Writing','Design','Learning','Digital Tasks'][i]:['লেখালেখি','ডিজাইন','শেখা','ডিজিটাল কাজ'][i]);
+document.querySelectorAll('.task button').forEach(el=>el.textContent=english?'Details':'বিস্তারিত');
+}
+
+function filterTasks(category){
+let found=0;
+document.querySelectorAll('.task').forEach(task=>{
+let show=task.dataset.category===category;
+task.style.display=show?'block':'none';
+if(show)found++;
+});
+document.getElementById('noResult').hidden=found>0;
+document.getElementById('tasks').scrollIntoView({behavior:'smooth'});
+}
+
+function searchTasks(){
+let query=document.getElementById('searchInput').value.trim().toLowerCase();
+let found=0;
+document.querySelectorAll('.task').forEach(task=>{
+let show=task.textContent.toLowerCase().includes(query);
+task.style.display=show?'block':'none';
+if(show)found++;
+});
+document.getElementById('noResult').hidden=found>0;
+document.getElementById('tasks').scrollIntoView({behavior:'smooth'});
+}
+
+function taskInfo(name){
+alert((english?'Task: ':'কাজ: ')+name+'\n\n'+(english?'Task details and application system will be available in a future update.':'এই কাজের বিস্তারিত ও আবেদন ব্যবস্থা পরবর্তী আপডেটে যুক্ত হবে।'));
+}
+
+document.getElementById('searchInput').addEventListener('keydown',function(e){
+if(e.key==='Enter')searchTasks();
+});
+</script>
 </body>
 </html>
